@@ -4,12 +4,9 @@ from rest_framework.response import Response
 from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, LeaderboardSerializer, WorkoutSerializer
 from .models import User, Team, Activity, Leaderboard, Workout
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 def api_root(request, format=None):
-    if request.method == 'POST':
-        return Response({"message": "POST request received"}, status=status.HTTP_201_CREATED)
-
-    base_url = 'http://localhost:8000/'
+    base_url = 'https://[zany-dollop-vqjqgrx9gx43xxv]-8000.app.github.dev/'
     return Response({
         'users': base_url + 'api/users/?format=api',
         'workouts': base_url + 'api/workouts/?format=api'
